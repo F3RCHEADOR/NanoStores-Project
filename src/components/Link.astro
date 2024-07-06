@@ -1,0 +1,8 @@
+---
+import type { Links } from "../data/links.ts";
+const { title, path } = Astro.props as Links;
+---
+
+<a href={path} class="flex flex-col">
+  <span class="p-2 ml-1  hover:bg-blue-600 hover:underline rounded-full text-gray-100">{title}</span>
+</a>

@@ -1,16 +1,76 @@
 ---
-
+import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import imagen1 from "../assets/Imagen1.png";
+import imagen2 from "../assets/Imagen2.png";
+import imagen3 from "../assets/Imagen3.png";
+import imagen4 from "../assets/Imagen4.png";
+import imagen5 from "../assets/Imagen5.png";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Home">
+	<main class="max-w-screen-xl mx-auto space-y-8">
+		<h1
+			class="font-grotesk text-white text-4xl md:text-6xl text-center w-[350px] md:w-[700px] mx-auto"
+		>
+			Conectando developers con empresas
+		</h1>
+		<p class="text-gray-100 text-sm md:text-base text-center w-[350px] md:w-[500px] mx-auto px-8">
+			Lorem ipsum dolor sit amet consectetur. Etiam pretium cursus nisl velit.
+			quis egestas magna quis ornare placerat tempor.
+		</p>
+
+		<div class="flex items-center justify-center space-x-2 md:space-x-8 mx-auto">
+			<button
+				class="w-40 md:w-44 flex items-center justify-center rounded-lg bg-lime-200 px-6 md:px-8 py-3"
+				><span class="font-extrabold">Busco talento</span></button
+			>
+			<button
+				class="w-40 md:w-44 flex items-center justify-center border border-lime-400 rounded-lg px-6 md:px-8 py-3"
+				><span class="text-lime-200 font-semibold">soy talento</span></button
+			>
+		</div>
+
+		<article class="py-20">
+			<div class="flex flex-row justify-evenly">
+				<Image
+					class="w-20 h-24 md:w-60 md:h-60 border-2 border-gray-100 rounded-lg"
+					src={imagen1}
+					alt={"Imagen1"}
+					width={240}
+					height={50}
+				/>
+				<Image
+					class="w-36 h-24 md:w-[500px] md:h-[240px] border-2 border-gray-100 rounded-lg"
+					src={imagen2}
+					alt={"Imagen2"}
+					width={500}
+					height={500}
+				/>
+				<Image
+					class="w-20 h-24 md:w-60 md:h-60 border-2 border-gray-100 rounded-lg"
+					src={imagen3}
+					alt={"Imagen3"}
+					width={240}
+					height={50}
+				/>
+			</div>
+			<div class="flex justify-evenly m-8 space-x-4 md:space-x-0">
+				<Image
+					class="w-36 h-24 md:w-[500px] md:h-[240px] border-2 border-gray-100 rounded-lg"
+					src={imagen4}
+					alt={"Imagen2"}
+					width={500}
+					height={500}
+				/>
+				<Image
+					class="w-36 h-24 md:w-[500px] md:h-[240px] border-2 border-gray-100 rounded-lg"
+					src={imagen5}
+					alt={"Imagen2"}
+					width={500}
+					height={500}
+				/>
+			</div>
+		</article>
+	</main>
+</MainLayout>

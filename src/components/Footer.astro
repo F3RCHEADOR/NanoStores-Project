@@ -1,0 +1,31 @@
+---
+import { Icon } from "astro-icon/components";
+import Link from "../components/Link.astro";
+import type { Links } from "../data/links.ts";
+import { linksData } from "../data/links.ts";
+---
+
+<footer class="mx-auto max-w-screen-2xl my-8">
+  <div class="border-t border-b border-gray-100 mx-8">
+    <div class="max-w-md md:mx-auto px-8 md:px-0 md:p-12">
+      <div class="flex items-center justify-start md:justify-center space-x-1">
+        <Icon name="cohete" size={30} />
+        <h1 class="text-white text-xl my-8">AstroTalent</h1>
+      </div>
+      <div
+        class="flex flex-col md:flex-row md:items-center justify-start md:justify-evenly md:space-x-8 text-gray-100 mb-4"
+      >
+        {linksData.map((link: Links) => <Link {...link} />)}
+      </div>
+    </div>
+  </div>
+  <span class="flex items-center justify-center text-center text-gray-100 my-4"
+    >2024 - AstroTalent</span
+  >
+  <div
+    class="flex items-center justify-center flex-col-reverse text-center text-gray-100 mt-2.5"
+  >
+    <p>por la comunidad de unicornio.dev</p>
+    <p>Hecho con <span class="text-blue-400">♥</span> y Astro</p>
+  </div>
+</footer>

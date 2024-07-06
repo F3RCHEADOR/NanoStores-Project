@@ -1,0 +1,29 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<navbar class="flex items-center justify-between p-4 pb-8 md:pb-0 md:p-8">
+  <div class="inline-flex items-center space-x-1">
+    <Icon name="cohete" size={30} />
+    <h1 class="text-white text-xl">AstroTalent</h1>
+  </div>
+  <button id="navButton"> <Icon name="menu" size={30} /></button>
+</navbar>
+
+<script>
+  import { isSideMenuOpen } from "../store/store.ts";
+  const buttonShow = document.getElementById("navButton");
+  const buttonHidden = document.getElementById("navButtonCancel");
+
+  function handleSideMenu() {
+    if (isSideMenuOpen.value === false) {
+      isSideMenuOpen.set(true);
+    } else {
+      isSideMenuOpen.set(false);
+    }
+  }
+
+  document.getElementById("WindowBlur")?.addEventListener("click", handleSideMenu);
+  buttonShow?.addEventListener("click", handleSideMenu);
+  buttonHidden?.addEventListener("click", handleSideMenu);
+</script>

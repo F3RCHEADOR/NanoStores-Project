@@ -1,0 +1,21 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SideMenu from "../components/SideMenu.astro";
+
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<html lang="es">
+  <BaseHead title={title} />
+  <Header />
+  <SideMenu />
+  <body class="bg-blue-800">
+    <slot />
+  </body>
+  <Footer />
+</html>

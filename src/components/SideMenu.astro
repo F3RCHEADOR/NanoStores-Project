@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon/components";
+import { linksData } from "../data/links";
+import Link from "../components/Link.astro";
+---
+
+<div id="WindowBlur" class="hidden bg-black w-screen h-full fixed top-0 right-0 opacity-70 z-0"></div>
+
+<aside id="sideMenu" class="bg-blue-800 fixed top-0 -right-[500px] h-svh w-56 md:w-80 z-10 transition-all">
+  <div class="flex items-center justify-end p-2">
+    <button id="navButtonCancel" class="hover:bg-blue-600 p-2 rounded-lg"
+      ><Icon name="cancel" size={25} /></button
+    >
+  </div>
+
+  {linksData.map((link) => <Link {...link} />)}
+</aside>
+
+<script>
+  import { isSideMenuOpen } from "../store/store.ts";
+  
+  const WindowBlur = document.getElementById('WindowBlur');
+  const sideMenu = document.getElementById('sideMenu');
+
+  isSideMenuOpen.subscribe((open) => {
+    if (open) {
+      sideMenu?.classList.remove('-right-[500px]');
+      sideMenu?.classList.add('right-0'); 
+      WindowBlur?.classList.remove('hidden') 
+    } else {
+      sideMenu?.classList.add('-right-[500px]');
+      sideMenu?.classList.remove('right-0');
+      WindowBlur?.classList.add('hidden')  
+    }
+  });
+</script>
